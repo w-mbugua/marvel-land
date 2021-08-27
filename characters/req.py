@@ -4,7 +4,7 @@ import datetime
 import hashlib
 from decouple import config
 
-from .models import Hero
+from .models import Hero, Comic
 
 
 base_url = 'https://gateway.marvel.com:443/v1/public/characters'
@@ -59,16 +59,13 @@ def process_characters(results):
 
 
 def get_character_details(character_id):
-    global base_url
-    url = f'{base_url}/{character_id}?{getUrl()}'
-    data = requests.get(url)
-    response = data.json()
-
-    detail_results = None
-    if response['data'].get('results'):
-        detail_results = response['data'].get('results')
-
-
+    character_details = {}
+    for character in get_characters():
+        if character.id == character_id:
+            character_details['id'] = character_id
+            character_details['name'] = character.name
+            character_details['description'] = character.description
+    return character_details
 
 
 def get_character_comics(character_id):
@@ -80,6 +77,23 @@ def get_character_comics(character_id):
     comic_results = None
     if response['data'].get('results'):
         comic_results = response['data'].get('results')
+    return process_comics(comic_results)
+
+def process_comics(results):
+
+    comic_list = []
+    for item in results:
+        id = item.get('id')
+        title = item.get('title')
+        description = item.get('description')
+        image_path = item.get('thumbnail')
+
+        if description:
+            image_path = f"{image_path['path']}/portrait_uncanny.{image_path['extension']}"
+            comic = Comic(id=id, title=title, description=description, image_path=image_path)
+            comic_list.append(comic)
+    return comic_list
+
 
 
 
