@@ -29,7 +29,7 @@ def get_characters():
     function to get the json response of the url request
     returns processed results
     '''
-    url = f'{base_url}?orderBy=-name&limit=100&{getUrl()}'
+    url = f'{base_url}?orderBy=-name&limit=30&{getUrl()}'
     data = requests.get(url)
     resp = data.json()
     
@@ -52,7 +52,7 @@ def process_characters(results):
             image_check = thumbnail['path'].endswith('image_not_available')
             # check if the character has a description and image
             if description and not image_check:
-                image_path = f"{thumbnail['path']}/portrait_uncanny.{thumbnail['extension']}"
+                image_path = f"{thumbnail['path']}/portrait_fantastic.{thumbnail['extension']}"
                 hero_object = Hero(id=id, name=name, description=description, image=image_path)
                 hero_objects.append(hero_object)
     return hero_objects

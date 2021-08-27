@@ -9,3 +9,15 @@ nav > span{
 body{
   background-color: whitesmoke;
 }
+.display{
+  display: flex;
+  flex-wrap: wrap;
+}
+.hero-img{
+  width: 100%;
+  object-fit: contain;
+}
+.card{
+  max-width: 500px;
+  margin: 20px;
+}

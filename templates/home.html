@@ -1,12 +1,27 @@
 {% extends 'base.html' %}
-<!-- <h1>Marvel Heroes</h1>
-{% for hero in characters %}
-  <div class="display">
-    <h3>{{hero.name}}</h3>
-    <a href="{% url 'character_page' hero.id %}">
-      <p>{{forloop.counter}}</p>
-      <img class="image{{forloop.counter}}" src="{{hero.image}}" alt="">
-    </a>
-  </div>
+
+{% block title %}
+Home
+{% endblock title %}
+{% block content %}
  
-{% endfor %} -->
+    <div class="display">
+      {% for hero in characters %}
+          <div class="card mb-3">
+            <div class="row g-0">
+              <div class="col-md-6">
+                <img src="{{hero.image}}" class="rounded-start hero-img" alt="...">
+              </div>
+              <div class="col-md-1"></div>
+              <div class="col-md-5">
+                <div class="card-body">
+                  <h5 class="card-title">{{hero.name}}</h5>
+                  <p class="card-text">{{hero.description}}</p>
+                  <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                </div>
+              </div>
+            </div>
+          </div>
+      {% endfor %}
+    </div>
+{% endblock content %}
