@@ -20,7 +20,7 @@ def getUrl():
 
     hash = hashlib.md5((ts+private_key+public_key).encode()).hexdigest()
 
-    base_url = f'https://gateway.marvel.com:443/v1/public/characters?'
+    base_url = f'https://gateway.marvel.com:443/v1/public/characters?limit=50&'
     return f'{base_url}ts={ts}&apikey={public_key}&hash={hash}'
 
 
@@ -49,6 +49,7 @@ def process_characters(results):
             id = hero.get('id')
             name = hero.get('name')
             description = hero.get('description')
-            hero_object = Hero(id=id, name=name, description=description)
-            hero_objects.append(hero_object)
+            if description:
+                hero_object = Hero(id=id, name=name, description=description)
+                hero_objects.append(hero_object)
     return hero_objects
