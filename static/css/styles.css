@@ -1,0 +1,11 @@
+nav {
+background-color: #001d3d;
+padding: 20px;
+}
+nav > span{
+  color: white;
+  text-transform: uppercase;
+}
+body{
+  background-color: whitesmoke;
+}

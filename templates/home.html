@@ -1,8 +1,12 @@
-<h1>Marvel Heroes</h1>
+{% extends 'base.html' %}
+<!-- <h1>Marvel Heroes</h1>
 {% for hero in characters %}
-  <h3>{{hero.name}}</h3>
-  <a href="{% url 'character_page' hero.id %}">
-    <img src="{{hero.image}}" alt="">
-  </a>
+  <div class="display">
+    <h3>{{hero.name}}</h3>
+    <a href="{% url 'character_page' hero.id %}">
+      <p>{{forloop.counter}}</p>
+      <img class="image{{forloop.counter}}" src="{{hero.image}}" alt="">
+    </a>
+  </div>
  
-{% endfor %}
+{% endfor %} -->
