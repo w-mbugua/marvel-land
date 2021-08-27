@@ -1,0 +1,9 @@
+<h2>Name: {{character.name}}</h2>
+<p>Description: {{character.description}}</p>
+
+<ul>
+  {% for comic in comics %}
+    <li>{{comic.title}}</li>
+    <img src="{{comic.image_path}}" alt="">
+{% endfor %}
+</ul>
