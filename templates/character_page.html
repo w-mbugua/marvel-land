@@ -1,9 +1,28 @@
-<h2>Name: {{character.name}}</h2>
-<p>Description: {{character.description}}</p>
+{% extends 'base.html' %}
+{% block title %}
+  {{character.name}}
+{% endblock title%}
+{% block content %}
 
-<ul>
-  {% for comic in comics %}
-    <li>{{comic.title}}</li>
-    <img src="{{comic.image_path}}" alt="">
-{% endfor %}
-</ul>
+      <div class="row justify-content-center">
+          <img class="details-img" src="{{character.image_path}}" alt="">
+          <h2 class="text-center">{{character.name}}</h2>
+      </div>
+      <div class="row">
+        <p class="text-center">{{character.description}}</p>
+  
+        <div class="comic-display">
+            {% for comic in comics %}
+              <div class="comic-info">
+                <img src="{{comic.image_path}}" class="rounded-start comic-img" alt="">
+                <div class="middle">
+                  <h3 class="title">{{comic.title}}</h3>
+                </div>
+              </div>
+          {% endfor %}
+          </ul>
+        </div>
+      </div>
+     
+
+{% endblock content %}

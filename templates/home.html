@@ -9,14 +9,14 @@ Home
       {% for hero in characters %}
           <div class="card mb-3">
             <div class="row g-0">
-              <div class="col-md-6">
-                <img src="{{hero.image}}" class="rounded-start hero-img" alt="...">
+              <div class="col-md-4">
+                <img src="{{hero.image}}" class="img-fluid rounded-start" alt="...">
               </div>
-              <div class="col-md-1"></div>
-              <div class="col-md-5">
+              <div class="col-md-8">
                 <div class="card-body">
                   <h5 class="card-title">{{hero.name}}</h5>
-                  <p class="card-text">{{hero.description}}</p>
+                  <p class="card-text">{{hero.description |truncatechars:100}}</p>
+                 <a href="{% url 'character_page' hero.id %}">Read More</a>
                   <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
                 </div>
               </div>

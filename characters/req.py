@@ -65,6 +65,7 @@ def get_character_details(character_id):
             character_details['id'] = character_id
             character_details['name'] = character.name
             character_details['description'] = character.description
+            character_details['image_path'] = character.image
     return character_details
 
 
