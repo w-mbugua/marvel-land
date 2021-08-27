@@ -49,7 +49,10 @@ def process_characters(results):
             id = hero.get('id')
             name = hero.get('name')
             description = hero.get('description')
-            if description:
-                hero_object = Hero(id=id, name=name, description=description)
+            thumbnail = hero.get('thumbnail')
+            image_bool = thumbnail['path'].endswith('image_not_available')
+            if description and not image_bool:
+                image_path = f"{thumbnail['path']}/standard_medium.{thumbnail['extension']}"
+                hero_object = Hero(id=id, name=name, description=description, image=image_path)
                 hero_objects.append(hero_object)
     return hero_objects
