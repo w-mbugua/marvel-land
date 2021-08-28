@@ -2,14 +2,30 @@ body{
   background-color: whitesmoke;
   font-family: 'Open Sans', sans-serif;
 }
-h1, h2, h3, h5{
+section  a:link{
+  text-decoration: none;
+  color: #00B4CC;
+}
+section  a:visited{
+  color: #00B4CC;
+}
+.home-link{
+  font-size: 30px;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: #fff689;
+  text-align: center;
+  font-weight: 500;
+}
+h1, h2, h3, h5, .home-link{
   font-family: 'Bangers', serif;
 }
-.row{
+.character-row{
   margin: 2em 0em;
 }
 nav {
-background-color: #001d3d;
+/* background-color: #001d3d; */
+background-color: #58355e;
 padding: 20px;
 }
 nav > span{
@@ -22,15 +38,25 @@ nav > span{
   flex-wrap: wrap;
 }
 .hero-img{
-  max-width: 100%;
+  width: 97%;
   max-height: 300px;
   object-fit: cover;
 }
+.hero-img:hover{
+  width: 100%;
+}
 .card{
   max-width: 500px;
-  max-height: 300px;
   margin: 20px;
 }
+
+.img-col{
+  background-color: #58355e;
+}
+/* .text-col{
+  background-color: black;
+  color: whitesmoke;
+} */
 
 /*character page*/
 .comic-display {
@@ -81,3 +107,50 @@ nav > span{
   font-size: 12px;
   padding: 16px 25px;
 } */
+
+/* search bar */
+
+.search {
+  width: 100%;
+  position: relative;
+  display: flex;
+}
+
+.searchTerm {
+  width: 100%;
+  border: 3px solid #00B4CC;
+  border-right: none;
+  padding: 5px;
+  height: 36px;
+  border-radius: 5px 0 0 5px;
+  outline: none;
+  color: #9DBFAF;
+}
+
+.searchTerm:focus{
+  color: #00B4CC;
+}
+
+.searchButton {
+  width: 40px;
+  height: 36px;
+  border: 1px solid #00B4CC;
+  background: #00B4CC;
+  text-align: center;
+  color: #fff;
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+/*Resize the wrap to see the search bar change!*/
+.wrap{
+  width: 30%;
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.content{
+  margin-top: 3rem;
+}
