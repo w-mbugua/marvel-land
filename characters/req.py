@@ -59,6 +59,10 @@ def process_characters(results):
 
 
 def get_character_details(character_id):
+    '''
+    function to retrieve a single character and their details from the
+    list of already retrieved heroes
+    '''
     character_details = {}
     for character in get_characters():
         if character.id == character_id:
@@ -70,18 +74,26 @@ def get_character_details(character_id):
 
 
 def get_character_comics(character_id):
+    '''
+    function to retrieve comics per character
+    '''
     global base_url
     url = f'{base_url}/{character_id}/comics?{getUrl()}'
     data = requests.get(url)
     response = data.json()
 
     comic_results = None
-    if response['data'].get('results'):
+    # if the character has comics go ahead and process else return None
+    if len(response['data'].get('results')) > 0:
         comic_results = response['data'].get('results')
-    return process_comics(comic_results)
+        return process_comics(comic_results)
+    else:
+        return comic_results
 
 def process_comics(results):
-
+    '''
+    function to process comics response and return a list
+    '''
     comic_list = []
     for item in results:
         id = item.get('id')

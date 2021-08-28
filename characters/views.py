@@ -10,11 +10,16 @@ def home(request):
 
 def character_page(request, id):
   character_info = get_character_details(id)
+  print("character",character_info)
   character_comics = get_character_comics(id)
+  print("comics",character_comics)
   context = {
     'character': character_info,
     'comics': character_comics,
     }
   return render(request, 'character_page.html', context)
+
+def search_hero(request):
+  pass
 
 
