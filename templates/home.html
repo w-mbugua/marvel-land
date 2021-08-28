@@ -1,27 +1,41 @@
 {% extends 'base.html' %}
 
-{% block title %}
-Home
-{% endblock title %}
-{% block content %}
- 
-    <div class="display">
-      {% for hero in characters %}
-          <div class="card mb-3">
-            <div class="row g-0">
-              <div class="img-col col-md-6">
-                <img src="{{hero.image}}" class="hero-img rounded-start" alt="...">
-              </div>
+{% block title %} Home {% endblock title %}
 
-              <div class="text-col col-md-6">
-                <div class="card-body">
-                  <h5 class="card-title">{{hero.name}}</h5>
-                  <p class="card-text">{{hero.description |truncatechars:100}}</p>
-                 <a href="{% url 'character_page' hero.id %}">Read More</a>
+{% block content %}
+<section>
+  <div class="wrap">
+      <form class="search" action="{% url 'search' %}" method="GET">
+        <input type="text" class="searchTerm" name="searchTerm" placeholder="What are you looking for?">
+        <button type="submit" class="searchButton">
+         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+           <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+         </svg>
+       </button>
+      </form>
+
+ </div>
+ </section>
+  <br>
+    <section>
+      <div class="display">
+        {% for hero in characters %}
+            <div class="card mb-3">
+              <div class="row g-0">
+                <div class="img-col col-md-6">
+                  <img src="{{hero.image_path}}" class="hero-img rounded-start" alt="...">
+                </div>
+  
+                <div class="text-col col-md-6">
+                  <div class="card-body">
+                    <h5 class="card-title">{{hero.name}}</h5>
+                    <p class="card-text">{{hero.description |truncatechars:100}}</p>
+                   <a href="{% url 'character_page' hero.id %}">Read More</a>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-      {% endfor %}
-    </div>
+        {% endfor %}
+      </div>
+    </section>
 {% endblock content %}

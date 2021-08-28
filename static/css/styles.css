@@ -17,6 +17,9 @@ section  a:visited{
   text-align: center;
   font-weight: 500;
 }
+.home-link:hover{
+  color: whitesmoke;
+}
 h1, h2, h3, h5, .home-link{
   font-family: 'Bangers', serif;
 }
@@ -44,6 +47,7 @@ nav > span{
 }
 .hero-img:hover{
   width: 100%;
+  
 }
 .card{
   max-width: 500px;
@@ -63,6 +67,9 @@ nav > span{
   display: flex;
   flex-wrap: wrap;
 
+}
+.row-profile{
+  border-bottom: 3px solid black;
 }
 .comic-img{
   max-width: 300px;
@@ -147,10 +154,12 @@ nav > span{
 .wrap{
   width: 30%;
   position: absolute;
-  top: 20%;
+  top: 30%;
   left: 50%;
   transform: translate(-50%, -50%);
+  margin-bottom: 2em;
 }
+
 .content{
-  margin-top: 3rem;
+  margin-top: 5rem;
 }

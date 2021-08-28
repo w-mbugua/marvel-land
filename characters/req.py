@@ -1,5 +1,4 @@
 import requests
-import os
 import datetime
 import hashlib
 from decouple import config
@@ -49,11 +48,17 @@ def process_characters(results):
             name = hero.get('name')
             description = hero.get('description')
             thumbnail = hero.get('thumbnail')
+            urls = hero.get('urls')
             image_check = thumbnail['path'].endswith('image_not_available')
             # check if the character has a description and image
             if description and not image_check:
-                image_path = f"{thumbnail['path']}/portrait_fantastic.{thumbnail['extension']}"
-                hero_object = Hero(id=id, name=name, description=description, image=image_path)
+                image_path = f"{thumbnail['path']}/portrait_uncanny.{thumbnail['extension']}"
+                hero_link = ''
+                for url in urls:
+                    print("URL",url)
+                    if url['type'] == 'wiki':
+                        hero_link = url['url']
+                hero_object = Hero(id=id, name=name, description=description, image_path=image_path, link=hero_link)
                 hero_objects.append(hero_object)
     return hero_objects
 
@@ -69,7 +74,8 @@ def get_character_details(character_id):
             character_details['id'] = character_id
             character_details['name'] = character.name
             character_details['description'] = character.description
-            character_details['image_path'] = character.image
+            character_details['image_path'] = character.image_path
+            character_details['link'] = character.link
     return character_details
 
 
@@ -106,6 +112,34 @@ def process_comics(results):
             comic = Comic(id=id, title=title, description=description, image_path=image_path)
             comic_list.append(comic)
     return comic_list
+
+def search_hero(name):
+    global base_url
+    url = f"{base_url}?name={name}&{getUrl()}"
+    data = requests.get(url)
+    response = data.json()
+    print(response)
+    hero = {}
+
+    # process the json reponse
+    if response['status'] == "Ok":
+        results = response['data'].get('results')[0]
+        id = results.get('id')
+        name = results.get('name')
+        description = results.get('description')
+        thumbnail = results.get('thumbnail')
+        urls = results.get('urls')
+
+        image_path = f"{thumbnail['path']}/portrait_uncanny.{thumbnail['extension']}"
+        hero_link = ''
+        for url in urls:
+            if url['type'] == 'wiki':
+                hero_link = url['url']
+        hero = Hero(id=id, name=name, description=description, image_path=image_path, link=hero_link)
+    return hero
+    
+
+
 
 
 

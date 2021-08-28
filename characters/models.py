@@ -5,11 +5,12 @@ class Hero:
     '''
       class to define character objects
     '''
-    def __init__(self, id, name, description, image):
+    def __init__(self, id, name, description, image_path, link):
       self.id = id
       self.name = name
       self.description = description
-      self.image = image
+      self.image_path = image_path
+      self.link = link
 
 
 class Comic:

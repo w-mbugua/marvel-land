@@ -4,13 +4,20 @@
 {% endblock title%}
 {% block content %}
 
-      <div class="row character-row justify-content-center">
-          <img class="details-img" src="{{character.image_path}}" alt="">
-          <h2 class="text-center">{{character.name}}</h2>
+    <div class="row row-profile">
+      <div class="col-md-4">
+        <img src="{{character.image_path}}"  alt="...">
       </div>
+      <div class="col-md-6">
+          <h2>{{character.name}}</h2>
+          <div>
+            <p>{{character.description}}</p>
+            <small><a href="{{character.link}}">Read More</a></small>
+          </div>
+
+      </div>
+    </div>
       <div class="row character-row">
-        <p class="text-center">{{character.description}}</p>
-  
         <div class="comic-display">
             {% for comic in comics %}
               <div class="comic-info">

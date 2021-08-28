@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from .req import get_characters, get_character_details, get_character_comics
+from .req import get_characters, get_character_details, get_character_comics, search_hero
 
 # Create your views here.
 def home(request):
@@ -19,7 +19,13 @@ def character_page(request, id):
     }
   return render(request, 'character_page.html', context)
 
-def search_hero(request):
-  pass
+def search_character(request):
+  search_term = request.GET.get('searchTerm').upper()
+  print(search_term)
+  character = search_hero(search_term)
+  return render(request, 'search_page.html', {"character": character})
+
+
+
 
 

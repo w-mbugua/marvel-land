@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block title %} Search {% endblock title %}
+
+{% block content %}
+   {% if character %}
+    <div class="row">
+        <div class="col-md-4">
+          <img src="{{character.image_path}}" alt="...">
+        </div>
+        <div class="col-md-6">
+            <h2>{{character.name}}</h2>
+            <div>
+              <p>{{character.description}}</p>
+              <small><a href="{{character.link}}">Read More</a></small>
+            </div>
+
+        </div>
+    </div>
+   {% else %}
+      <h3>Character not found</h3>
+   {% endif %}    
+{% endblock content%}
