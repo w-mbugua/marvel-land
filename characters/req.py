@@ -30,7 +30,7 @@ async def get_characters():
     function to get the json response of the url request
     returns processed results
     '''
-    url = f'{base_url}?orderBy=-name&limit=30&{getUrl()}'
+    url = f'{base_url}?orderBy=-name&limit=100&{getUrl()}'
     hero_results = None
     async with aiohttp.ClientSession() as session:
         async with session.get(url) as data:
