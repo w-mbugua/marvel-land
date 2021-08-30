@@ -1,1 +1,1 @@
-web: gunicorn marvel_project.wsgi --log-file -
+web: gunicorn marvel_project.wsgi
