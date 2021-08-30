@@ -27,12 +27,12 @@ h1, h2, h3, h5, .home-link{
   margin: 2em 0em;
 }
 nav {
-/* background-color: #001d3d; */
 background-color: #58355e;
 padding: 20px;
 text-align: center;
 
 }
+
 nav > span{
   color: white;
   text-transform: uppercase;
@@ -117,7 +117,14 @@ small{
   object-fit: contain;
 
 }
-
+.actions{
+  display: flex;
+  margin: 1em 2em;
+  justify-content: center;
+}
+svg{
+  margin: 10px;
+}
 /* .title {
   background-color: #04AA6D;
   color: white;
