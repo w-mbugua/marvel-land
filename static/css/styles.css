@@ -30,6 +30,8 @@ nav {
 /* background-color: #001d3d; */
 background-color: #58355e;
 padding: 20px;
+text-align: center;
+
 }
 nav > span{
   color: white;
@@ -53,7 +55,10 @@ nav > span{
   max-width: 500px;
   margin: 20px;
 }
-
+.heroes img{
+  max-height: 100px;
+  object-fit: contain;
+}
 .img-col{
   background-color: #58355e;
 }
@@ -68,8 +73,13 @@ nav > span{
   flex-wrap: wrap;
 
 }
-.row-profile{
+hr {
   border-bottom: 3px solid black;
+}
+small{
+  text-align: center;
+  text-transform: uppercase;
+
 }
 .comic-img{
   max-width: 300px;
@@ -150,7 +160,7 @@ nav > span{
   font-size: 20px;
 }
 
-/*Resize the wrap to see the search bar change!*/
+
 .wrap{
   width: 30%;
   position: absolute;
@@ -162,4 +172,22 @@ nav > span{
 
 .content{
   margin-top: 5rem;
+}
+
+@media screen and (max-width: 1024px) {
+  .wrap{
+    width: 30%;
+    position: absolute;
+    top: 10%;
+
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .wrap{
+    width: 30%;
+    position: absolute;
+    top: 20%;
+
+  }
 }
