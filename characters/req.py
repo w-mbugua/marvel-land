@@ -58,7 +58,7 @@ async def process_characters(results):
                 image_path = f"{thumbnail['path']}/portrait_uncanny.{thumbnail['extension']}"
                 hero_link = ''
                 for url in urls:
-                    print("URL",url)
+                    
                     if url['type'] == 'wiki':
                         hero_link = url['url']
                 hero_object = Hero(id=id, name=name, description=description, image_path=image_path, link=hero_link)
@@ -123,7 +123,7 @@ def search_hero(name):
     url = f"{base_url}?name={name}&{getUrl()}"
     data = requests.get(url)
     response = data.json()
-    print(response)
+    # print(response)
     hero = {}
 
     # process the json reponse
