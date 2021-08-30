@@ -36,8 +36,8 @@ async def get_characters():
         async with session.get(url) as data:
             resp = await data.json()
             res = resp.get('data')
-            if res.get('results'):
-                print('YES')
+            if res:
+                res = res.get('results')
                 hero_results = resp.get('data')['results']
     return await process_characters(hero_results)
      
