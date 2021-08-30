@@ -35,8 +35,9 @@ async def get_characters():
     async with aiohttp.ClientSession() as session:
         async with session.get(url) as data:
             resp = await data.json()
-
-            if resp.get('data')['results']:
+            res = resp.get('data')
+            if res.get('results'):
+                print('YES')
                 hero_results = resp.get('data')['results']
     return await process_characters(hero_results)
      
