@@ -17,6 +17,8 @@
 > * Launch the project in an IDE
 > * Create a `.env` file in the root folder
 > * Get yout marvel api keys and store them in the .env as `PUBLIC_KEY` & `PRIVATE_KEY`
+> * Other env variables: `SECRET_KEY` `MODE` `ALLOWED_HOSTS` `DEBUG`
+> * Run `python manage.py runserver` and navigate to `localhost:8000`
 
 
 ## Mobile support
