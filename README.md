@@ -1,4 +1,4 @@
-# ![MarvelApp]()
+# ![MarvelApp](https://github.com/JoyMbugua/marvel-land/blob/main/static/images/screenshot.png)
 
 # Marvel-Land
 > An application that consumes the marvel API to display Marvel characters.
@@ -8,7 +8,7 @@
 -----------------------------------------------
 ## Demo
 
-> Here is a working [live demo]() 
+> Here is a working [live demo](https://marvelland.herokuapp.com/) 
 
 ## Usage
 > * git clone the project
@@ -19,11 +19,6 @@
 > * Get yout marvel api keys and store them in the .env as `PUBLIC_KEY` & `PRIVATE_KEY`
 > * Other env variables: `SECRET_KEY` `MODE` `ALLOWED_HOSTS` `DEBUG`
 > * Run `python manage.py runserver` and navigate to `localhost:8000`
-
-
-## Mobile support
-
-> The WebApp is compatible with devices of all sizes and all OS's, and consistent improvements are being made.
 
 
 ## Contribution
